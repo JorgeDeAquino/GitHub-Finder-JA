@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 
 function App() {
 
@@ -5,6 +6,7 @@ function App() {
   return (
     <div className="app">
       <h1>GitHub Finder</h1>
+      <Outlet />
     </div>
   )
 }
