@@ -10,14 +10,18 @@ import Loader from "../components/Loader"
 const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null)
   const [error, setError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const loadUser = async (userName: string) => {
+    setIsLoading(true)
     setError(false)
     setUser(null)
 
     const r = await fetch(`https://api.github.com/users/${userName}`)
 
     const data = await r.json()
+
+    setIsLoading(false)
 
     if (r.status === 404) {
       setError(true)
@@ -43,7 +47,7 @@ const Home = () => {
   return (
     <div>
       <Search loadUser={loadUser} />
-      <Loader />
+      {isLoading && <Loader />}
       {user && <User {...user} />}
       {error && <Error />}
     </div>
