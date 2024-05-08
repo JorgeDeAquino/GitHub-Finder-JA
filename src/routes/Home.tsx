@@ -4,6 +4,7 @@ import Search from "../components/Search"
 import { useState } from "react"
 import User from "../components/User"
 import Error from "../components/Error"
+import Loader from "../components/Loader"
 
 
 const Home = () => {
@@ -42,6 +43,7 @@ const Home = () => {
   return (
     <div>
       <Search loadUser={loadUser} />
+      <Loader />
       {user && <User {...user} />}
       {error && <Error />}
     </div>
