@@ -24,7 +24,7 @@ export default function Repos() {
 
             setIsLoading(false)
 
-            console.log(data)
+            setRepos(data)
         }
         if (username) {
             loadRepos(username)
@@ -32,10 +32,13 @@ export default function Repos() {
 
     }, [])
 
+    if (!repos && isLoading) return <Loader />
+
     return (
         <div>
-            Repos {username}
             <BackBtn />
+            <h2>Explore os repositórios do usuário: {username}</h2>
+            {repos && repos.length === 0 && <p>Não há repositórios.</p>}
         </div>
     )
 }
