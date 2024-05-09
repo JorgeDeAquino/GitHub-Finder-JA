@@ -14,8 +14,8 @@ export default function Repos() {
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        
-        const loadRepos = async function(username: string) {
+
+        const loadRepos = async function (username: string) {
             setIsLoading(true)
 
             const r = await fetch(`https://api.github.com/users/${username}/repos`)
@@ -26,7 +26,9 @@ export default function Repos() {
 
             console.log(data)
         }
-        loadRepos(username)
+        if (username) {
+            loadRepos(username)
+        }
 
     }, [])
 
