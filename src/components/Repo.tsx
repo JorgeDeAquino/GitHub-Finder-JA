@@ -20,6 +20,20 @@ export default function Repo({
                 <BsCodeSlash />
                 {language}
             </p>
+            <div>
+                <div>
+                    <AiOutlineStar />
+                    <span>{stargazers_count}</span>
+                </div>
+                <div>
+                    <AiOutlineFork />
+                    <span>{forks_count}</span>
+                </div>
+            </div>
+            <a href={html_url} target="_blank">
+                <span>Ver código</span>
+                <RiGitRepositoryLine />
+            </a>
         </div>
     )
 }
