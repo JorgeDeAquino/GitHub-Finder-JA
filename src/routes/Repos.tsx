@@ -24,8 +24,15 @@ export default function Repos() {
             const data = await r.json()
 
             setIsLoading(false)
+            console.log(data)
 
-            setRepos(data)
+            let orderedRepos = data.sort(
+                (a: RepoProps, b: RepoProps) => b.stargazers_count - a.stargazers_count
+              )
+        
+              orderedRepos = orderedRepos.slice(0, 5)
+        
+              setRepos(orderedRepos)
         }
         if (username) {
             loadRepos(username)
