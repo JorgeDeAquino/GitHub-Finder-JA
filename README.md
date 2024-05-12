@@ -1,4 +1,4 @@
-Objetivos:
+ Objetivos:
 
-- ajustar css
+- css
 - criar readme
